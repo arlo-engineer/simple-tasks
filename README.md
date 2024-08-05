@@ -62,3 +62,7 @@
    ```
    docker compose up -d
    ```
+# リポジトリを変更してpushする方法
+以下記事を参考にすることで、GitHubリポジトリを変更してpushすることができる
+
+https://k-koh.hatenablog.com/entry/2020/10/09/154644

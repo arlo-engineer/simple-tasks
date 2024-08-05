@@ -12,7 +12,7 @@
 1. **cloneする。**  
    プロジェクトのコピーを自分のコンピュータにダウンロードします。
    ```
-   git clone https://github.com/arlo-engineer/php81-nginx-mariadb.git 
+   git clone https://github.com/arlo-engineer/php81-nginx-mariadb.git <ディレクトリ名>
    ```
 
 2. **docker composeで立ち上げる。**  

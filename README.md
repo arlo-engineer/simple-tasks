@@ -42,18 +42,18 @@
 
 6. **docker-compose.ymlを編集する**  
    設定ファイル（docker-compose.yml）を変更して、プロジェクトの設定を更新します。以下のように`volumes`セクションを編集してください。
-   ```
+   ```diff
      web: 
     
        volumes:
-       - - .:/var/www/
-       + - ./my-app:/var/www/
+   -      - .:/var/www/
+   +      - ./my-app:/var/www/
 
      nginx: 
     
        volumes:
-       - - .:/var/www/
-       + - ./my-app:/var/www/
+   -      - .:/var/www/
+   +      - ./my-app:/var/www/
     
    ```
 
@@ -61,6 +61,20 @@
    更新した設定で、もう一度プログラムを起動します。
    ```
    docker compose up -d
+   ```
+# DBとの接続方法
+1. Laravelプロジェクト内の.envファイルを以下のように変更する(変更する値はLaravelプロジェクト外の.envファイルを参照する)
+   ```:.env
+   DB_CONNECTION=mysql
+   DB_HOST=[docker-compose.ymlのmariadbコンテナ名]
+   DB_PORT=3306
+   DB_DATABASE=development
+   DB_USERNAME=mysql
+   DB_PASSWORD=mysql
+   ```
+3. 以下を実行し、DBとの接続をする
+   ```
+   php artisan migrate
    ```
 # リポジトリを変更してpushする方法
 以下記事を参考にすることで、GitHubリポジトリを変更してpushすることができる

@@ -32,11 +32,8 @@ services:
       MYSQL_USER: ${MYSQL_USER}
       MYSQL_PASSWORD: ${MYSQL_PASSWORD}
       TZ: ${TZ}
-
     volumes:
       - ./docker/mysql/data:/var/lib/mysql
-      - ./docker/mysql/data/my.cnf:/etc/mysql/conf.d/my.cnf
-      - ./docker/mysql/data/sql:/docker-entrypoint-initdb.d
 
   phpmyadmin:
     container_name: myapp-phpmyadmin

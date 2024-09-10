@@ -33,7 +33,7 @@ services:
       MYSQL_PASSWORD: ${MYSQL_PASSWORD}
       TZ: ${TZ}
     volumes:
-      - ./docker/mysql/data:/var/lib/mysql
+      - ./docker/mysql:/var/lib/mysql
 
   phpmyadmin:
     container_name: myapp-phpmyadmin

@@ -9,16 +9,16 @@
 
 # Laravelプロジェクトの作成方法
 
-1. **cloneする。**  
+1. **cloneする**  
    プロジェクトのコピーを自分のコンピュータにダウンロードします。
    ```
-   git clone https://github.com/arlo-engineer/php81-nginx-mariadb.git <ディレクトリ名>
+   git clone git@github.com:arlo-engineer/php81-nginx-mariadb.git <ディレクトリ名>
    ```
 
-2. **docker composeで立ち上げる。**  
+2. **docker composeで立ち上げる**  
    ダウンロードしたプロジェクトを使って、必要なプログラム（コンテナと呼ばれる）を自動的に起動します。
    ```
-   cd php81-nginx-mariadb
+   cd <ディレクトリ名>
    docker compose up -d
    ```
 
@@ -28,19 +28,31 @@
    docker exec -it myapp-php bash
    ```
 
-4. **laravelをインストール**  
-   PHPを使って、Laravelというツールをセットアップ（インストール）します。
+4. **サブディレクトリにlaravelをインストールする**  
+   PHPを使って、Laravelをインストールします。
    ```
-   composer create-project --prefer-dist laravel/laravel my-app
+   mkdir <サブディレクトリ>
+   cd <サブディレクトリ>
+   composer create-project "laravel/laravel=10.*" . --prefer-dist
    ```
+   プロジェクトフォルダの中身を移動し、一時ディレクトリを削除
+   ```
+   cd /www
+   mv <サブディレクトリ>/* ./
+   mv <サブディレクトリ>/.* ./
+   rm -r <サブディレクトリ>
+   ```
+5. **実行テストする**
+   ブラウザで http://localhost にアクセスし、Laravelのwelcomeページが表示されることを確認する。
 
-5. **phpコンテナから出る**  
+<!-- 
+6. **phpコンテナから出る**  
    Laravelのセットアップが終わったら、PHPの部分を終了します。
    ```
    exit
    ```
 
-6. **docker-compose.ymlを編集する**  
+7. **docker-compose.ymlを編集する**  
    設定ファイル（docker-compose.yml）を変更して、プロジェクトの設定を更新します。以下のように`volumes`セクションを編集してください。
    ```diff
      web: 
@@ -57,11 +69,12 @@
     
    ```
 
-7. **再度docker composeで立ち上げる**  
+8. **再度docker composeで立ち上げる**  
    更新した設定で、もう一度プログラムを起動します。
    ```
    docker compose up -d
    ```
+   -->
 # DBとの接続方法
 1. Laravelプロジェクト内の.envファイルを以下のように変更する(変更する値はLaravelプロジェクト外の.envファイルを参照する)
    ```:.env
@@ -81,4 +94,6 @@
 
 [GitHubからクローンしたリポジトリを別リポジトリにプッシュしたい](https://k-koh.hatenablog.com/entry/2020/10/09/154644)
 
+# 参考文献
+[Laravel10の開発環境をdockerで実現する方法](https://qiita.com/hitotch/items/869070c3a9f474a358ea)
 

@@ -1,10 +1,10 @@
 # 使用技術
-![Laravel](https://img.shields.io/badge/Laravel-10-brightgreen.svg)
-![PHP](https://img.shields.io/badge/PHP-8-blue.svg)
-![MariaDB](https://img.shields.io/badge/MariaDB-10.4-blue.svg)
-![nginx](https://img.shields.io/badge/nginx-1.18-blue.svg)
-![Docker](https://img.shields.io/badge/Docker-20.10-blue.svg)
-![docker-compose](https://img.shields.io/badge/docker--compose-1.29-blue.svg)
+![Laravel](https://img.shields.io/badge/Laravel-11-brightgreen.svg)
+![PHP](https://img.shields.io/badge/PHP-8.3-blue.svg)
+![MariaDB](https://img.shields.io/badge/MySQL-8.0.33-blue.svg)
+![nginx](https://img.shields.io/badge/nginx-1.27-blue.svg)
+![Docker](https://img.shields.io/badge/Docker-26.1.4-blue.svg)
+![docker-compose](https://img.shields.io/badge/docker--compose-2.27.1-blue.svg)
 
 
 # Laravelプロジェクトの作成方法
@@ -95,5 +95,6 @@
 [GitHubからクローンしたリポジトリを別リポジトリにプッシュしたい](https://k-koh.hatenablog.com/entry/2020/10/09/154644)
 
 # 参考文献
-[Laravel10の開発環境をdockerで実現する方法](https://qiita.com/hitotch/items/869070c3a9f474a358ea)
+- [Laravel10の開発環境をdockerで実現する方法](https://qiita.com/hitotch/items/869070c3a9f474a358ea)
+- [【最新保存版】Laravel入門基礎マスター講座【初心者もゼロから学習】](https://youtu.be/SXjrlVs5Tnk?si=Dmr5qMVMMF33_ejB)
 

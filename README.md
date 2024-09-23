@@ -33,7 +33,7 @@
    ```
    mkdir <サブディレクトリ>
    cd <サブディレクトリ>
-   composer create-project "laravel/laravel=10.*" . --prefer-dist
+   composer create-project "laravel/laravel=11.*" . --prefer-dist
    ```
    プロジェクトフォルダの中身を移動し、一時ディレクトリを削除
    ```

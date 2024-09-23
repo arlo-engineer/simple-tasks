@@ -33,7 +33,10 @@ services:
       MYSQL_PASSWORD: ${MYSQL_PASSWORD}
       TZ: ${TZ}
     volumes:
-      - ./docker/mysql:/var/lib/mysql
+      - ./docker/mysql/data:/var/lib/mysql
+      - ./docker/mysql/conf:/etc/mysql/conf.d
+      - ./docker/mysql/sql:/docker-entrypoint-initdb.d
+      - ./docker/mysql/logs:/var/log/mysql
 
   phpmyadmin:
     container_name: myapp-phpmyadmin
@@ -43,7 +46,10 @@ services:
       - PMA_HOST=db
       - PMA_USER=${MYSQL_USER}
       - PMA_PASSWORD=${MYSQL_PASSWORD}
+      - TZ=${TZ}
     links:
       - db
     ports:
       - 8080:80
+    volumes:
+      - ./docker/phpmyadmin/sessions:/sessions

@@ -1,4 +1,4 @@
-FROM php:8.1-fpm
+FROM php:8.3-fpm
 WORKDIR /var/www
 ADD . /var/www
 
@@ -38,7 +38,7 @@ RUN curl -sL https://deb.nodesource.com/setup_18.x | bash - \
   && apt-get update \
   && apt-get install -y nodejs \
   && apt-get clean \
-  && rm -rf /var/lib/apt/lists/* 
+  && rm -rf /var/lib/apt/lists/*
 # install node packages
 RUN npm install -g n \
   && n stable \

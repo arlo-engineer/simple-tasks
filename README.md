@@ -79,7 +79,7 @@
 1. Laravelプロジェクト内の.envファイルを以下のように変更する(変更する値はLaravelプロジェクト外の.envファイルを参照する)
    ```:.env
    DB_CONNECTION=mysql
-   DB_HOST=[docker-compose.ymlのmariadbコンテナ名]
+   DB_HOST=db # docker-compose.ymlのmysqlのコンテナ名
    DB_PORT=3306
    DB_DATABASE=development
    DB_USERNAME=mysql

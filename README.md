@@ -31,57 +31,25 @@
 4. **サブディレクトリにlaravelをインストールする**  
    PHPを使って、Laravelをインストールします。
    ```
-   mkdir <サブディレクトリ>
-   cd <サブディレクトリ>
-   composer create-project "laravel/laravel=11.*" . --prefer-dist
+   composer create-project "laravel/laravel=11.*" myapp --prefer-dist
    ```
    プロジェクトフォルダの中身を移動し、一時ディレクトリを削除
    ```
-   cd /www
-   mv <サブディレクトリ>/* ./
-   mv <サブディレクトリ>/.* ./
-   rm -r <サブディレクトリ>
+   mv myapp/* ./
+   mv myapp/.* ./
+   rm -r myapp
    ```
 5. **実行テストする**
    ブラウザで http://localhost にアクセスし、Laravelのwelcomeページが表示されることを確認する。
 
-<!-- 
-6. **phpコンテナから出る**  
-   Laravelのセットアップが終わったら、PHPの部分を終了します。
-   ```
-   exit
-   ```
-
-7. **docker-compose.ymlを編集する**  
-   設定ファイル（docker-compose.yml）を変更して、プロジェクトの設定を更新します。以下のように`volumes`セクションを編集してください。
-   ```diff
-     web: 
-    
-       volumes:
-   -      - .:/var/www/
-   +      - ./my-app:/var/www/
-
-     nginx: 
-    
-       volumes:
-   -      - .:/var/www/
-   +      - ./my-app:/var/www/
-    
-   ```
-
-8. **再度docker composeで立ち上げる**  
-   更新した設定で、もう一度プログラムを起動します。
-   ```
-   docker compose up -d
-   ```
-   -->
 # DBとの接続方法
 1. Laravelプロジェクト内の.envファイルを以下のように変更する(変更する値はLaravelプロジェクト外の.envファイルを参照する)
    ```:.env
    DB_CONNECTION=mysql
    DB_HOST=db # docker-compose.ymlのmysqlのコンテナ名
    DB_PORT=3306
-   DB_DATABASE=development
+   DB_DATABASE=developmen
+   DB_ROOTPASSWORD=root
    DB_USERNAME=mysql
    DB_PASSWORD=mysql
    ```

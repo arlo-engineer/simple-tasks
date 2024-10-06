@@ -57,6 +57,23 @@
    ```
    php artisan migrate
    ```
+# 初期設定
+## タイムゾーンと言語
+.envファイルを以下の通り書き換える
+```:.env
+APP_TIMEZONE=Asia/Tokyo
+APP_LOCALE=ja
+```
+## デバッグバーのインストール
+```
+composer require barryvdh/laravel-debugbar
+```
+## 言語ファイル
+```
+php artisan lang:publish
+composer require askdkc/breezejp --dev
+php artisan breezejp
+```
 # リポジトリを変更してpushする方法
 以下記事を参考にすることで、GitHubリポジトリを変更してpushすることができる
 

@@ -48,7 +48,7 @@
    DB_CONNECTION=mysql
    DB_HOST=db # docker-compose.ymlのmysqlのコンテナ名
    DB_PORT=3306
-   DB_DATABASE=developmen
+   DB_DATABASE=development
    DB_ROOT_PASSWORD=root
    DB_USERNAME=mysql
    DB_PASSWORD=mysql

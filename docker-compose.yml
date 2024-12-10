@@ -32,9 +32,8 @@ services:
       MYSQL_USER: ${DB_USERNAME}
       MYSQL_PASSWORD: ${DB_PASSWORD}
       TZ: ${TZ}
-    tmpfs:
-      - /var/lib/mysql
-      - /var/log/mysql
+    volumes:
+      - db_data:/var/lib/mysql
 
   phpmyadmin:
     container_name: myapp-phpmyadmin
@@ -49,3 +48,6 @@ services:
       - db
     ports:
       - 8080:80
+
+volumes:
+  db_data:

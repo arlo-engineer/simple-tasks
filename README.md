@@ -1,85 +1,66 @@
-# 使用技術
-![Laravel](https://img.shields.io/badge/Laravel-11-brightgreen.svg)
-![PHP](https://img.shields.io/badge/PHP-8.3-blue.svg)
-![MariaDB](https://img.shields.io/badge/MySQL-8.0.33-blue.svg)
-![nginx](https://img.shields.io/badge/nginx-1.27-blue.svg)
-![Docker](https://img.shields.io/badge/Docker-26.1.4-blue.svg)
-![docker-compose](https://img.shields.io/badge/docker--compose-2.27.1-blue.svg)
+<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
+<p align="center">
+<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
+</p>
 
-# Laravelプロジェクトの作成方法
+## About Laravel
 
-1. **cloneする**  
-   プロジェクトのコピーを自分のコンピュータにダウンロードします。
-   ```
-   git clone git@github.com:arlo-engineer/php83-nginx-mysql.git <ディレクトリ名>
-   ```
+Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
 
-2. **docker composeで立ち上げる**  
-   ダウンロードしたプロジェクトを使って、必要なプログラム（コンテナと呼ばれる）を自動的に起動します。
-   ```
-   cd <ディレクトリ名>
-   docker compose up -d
-   ```
+- [Simple, fast routing engine](https://laravel.com/docs/routing).
+- [Powerful dependency injection container](https://laravel.com/docs/container).
+- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
+- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
+- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
+- [Robust background job processing](https://laravel.com/docs/queues).
+- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
 
-3. **phpコンテナに入る**  
-   起動したプログラムの中の一つ、PHPを使う部分にアクセスします。
-   ```
-   docker exec -it myapp-php bash
-   ```
+Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
-4. **サブディレクトリにlaravelをインストールする**  
-   PHPを使って、Laravelをインストールします。
-   ```
-   composer create-project "laravel/laravel=11.*" myapp --prefer-dist
-   ```
-   プロジェクトフォルダの中身を移動し、一時ディレクトリを削除
-   ```
-   mv myapp/* ./
-   mv myapp/.* ./
-   rm -r myapp
-   ```
-5. **実行テストする**
-   ブラウザで http://localhost にアクセスし、Laravelのwelcomeページが表示されることを確認する。
+## Learning Laravel
 
-# DBとの接続方法
-1. Laravelプロジェクト内の.envファイルを以下のように変更する(変更する値はLaravelプロジェクト外の.envファイルを参照する)
-   ```:.env
-   DB_CONNECTION=mysql
-   DB_HOST=db # docker-compose.ymlのmysqlのコンテナ名
-   DB_PORT=3306
-   DB_DATABASE=development
-   DB_ROOT_PASSWORD=root
-   DB_USERNAME=mysql
-   DB_PASSWORD=mysql
-   ```
-3. 以下を実行し、DBとの接続をする
-   ```
-   php artisan migrate
-   ```
-# 初期設定
-## タイムゾーンと言語
-.envファイルを以下の通り書き換える
-```:.env
-APP_TIMEZONE=Asia/Tokyo
-APP_LOCALE=ja
-```
-## デバッグバーのインストール
-```
-composer require barryvdh/laravel-debugbar
-```
-## 言語ファイル
-```
-php artisan lang:publish
-composer require askdkc/breezejp --dev
-php artisan breezejp
-```
-# リポジトリを変更してpushする方法
-以下記事を参考にすることで、GitHubリポジトリを変更してpushすることができる
+Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
 
-[GitHubからクローンしたリポジトリを別リポジトリにプッシュしたい](https://k-koh.hatenablog.com/entry/2020/10/09/154644)
+You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
 
-# 参考文献
-- [Laravel10の開発環境をdockerで実現する方法](https://qiita.com/hitotch/items/869070c3a9f474a358ea)
-- [【最新保存版】Laravel入門基礎マスター講座【初心者もゼロから学習】](https://youtu.be/SXjrlVs5Tnk?si=Dmr5qMVMMF33_ejB)
+If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
 
+## Laravel Sponsors
+
+We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+
+### Premium Partners
+
+- **[Vehikl](https://vehikl.com/)**
+- **[Tighten Co.](https://tighten.co)**
+- **[WebReinvent](https://webreinvent.com/)**
+- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
+- **[64 Robots](https://64robots.com)**
+- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
+- **[Cyber-Duck](https://cyber-duck.co.uk)**
+- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
+- **[Jump24](https://jump24.co.uk)**
+- **[Redberry](https://redberry.international/laravel/)**
+- **[Active Logic](https://activelogic.com)**
+- **[byte5](https://byte5.de)**
+- **[OP.GG](https://op.gg)**
+
+## Contributing
+
+Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+
+## Code of Conduct
+
+In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+
+## Security Vulnerabilities
+
+If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+
+## License
+
+The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).

@@ -1,6 +1,7 @@
 <script setup lang="ts">
-import { Link, router } from "@inertiajs/vue3";
+import { Link } from "@inertiajs/vue3";
 import { computed, ref } from "vue";
+import TaskListTable from "@/Components/TaskListTable.vue";
 
 interface Task {
     id: number;
@@ -14,10 +15,6 @@ interface Task {
 const props = defineProps<{
     tasks: Task[];
 }>();
-
-function toggleCompleted(taskId: number) {
-    return router.put(`/tasks/${taskId}/toggle-completed`);
-}
 
 const filterCompletedStatus = ref(0);
 const filterCompletedTasks = computed(() => {
@@ -43,32 +40,5 @@ function handleChangeFilter(event: Event) {
         <option value="1">未完了</option>
         <option value="2">完了済み</option>
     </select>
-    <table>
-        <thead>
-            <tr>
-                <th>タスク名</th>
-                <th>状態</th>
-                <th>期日</th>
-                <th>作成日</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr v-for="task in filterCompletedTasks" :key="task.id">
-                <td>
-                    <Link :href="route('tasks.show', task.id)">{{
-                        task.name
-                    }}</Link>
-                </td>
-                <td>
-                    <button @click="toggleCompleted(task.id)">
-                        {{ task.completed ? "✅完了済み" : "⬜未完了" }}
-                    </button>
-                </td>
-                <td>{{ task.due_date }}</td>
-                <td>
-                    {{ task.created_at }}
-                </td>
-            </tr>
-        </tbody>
-    </table>
+    <TaskListTable :tasks="filterCompletedTasks" />
 </template>
